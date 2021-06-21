@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
 
 
-function Saludo(){
+function Saludo(){//esto es un componente hijo, sino no sirve
   let params = useParams();
   let nombre = params.nombre;
   
