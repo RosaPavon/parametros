@@ -3,7 +3,7 @@ import './App.css';
 import {useParams} from 'react-router-dom'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { useState } from 'react';
-import userEvent from '@testing-library/user-event';
+
 
 function Saludo(){
   let params = useParams();
@@ -20,21 +20,24 @@ function App(){
 
   function cambiarInput(e){
     setInput(e.target.value)
+    
   }
  
 return (
 <BrowserRouter>
-       <Route exact path='/saludo/:nombre'>
-       <Link to={`/`}>inicio</Link>
-        <Saludo />
-        </Route>
+     
       <Route exact path='/'>
         <h2>Hola!</h2>
         <form>
         <input type="text" onChange={cambiarInput} value={input}></input>
-        <Link to={`/saludo/${input}`}>Saludo</Link>
-        </form>
-   
+        <div>
+        <Link to={`/${input}`}>Saludo</Link>
+        </div>
+        </form>   
+        </Route>
+        <Route exact path='/:nombre'>
+        <Link to={`/`}>inicio</Link>
+        <Saludo />
         </Route>
 </BrowserRouter>
 
